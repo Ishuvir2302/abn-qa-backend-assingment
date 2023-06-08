@@ -1,4 +1,4 @@
-name: RestAssured GitLAB issue API CI
+name: RestAssured maven CI
 
 on:
   push:
@@ -18,5 +18,11 @@ jobs:
       with:
         java-version: '11'
 
-    - name: Build with Maven
+    - name: Set up Maven
+      run: |
+        echo ${{ secrets.ACCESS_TOKEN }} > ~/.m2/settings.xml
+        mvn --version
+
+    - name: Build and Test
       run: mvn clean install
+
