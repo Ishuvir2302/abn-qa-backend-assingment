@@ -29,7 +29,7 @@ public class RequestStepDefs extends configReader {
     public void i_validate_the_response_status_is(int codeS) {
         int statuscode = res.getStatusCode();
         Assert.assertEquals(codeS, statuscode);
-        log.info(" response code " + statuscode);
+        log.info(" response code  " + statuscode);
         log.info(" response code " + res.getBody());
 
     }
@@ -48,7 +48,7 @@ public class RequestStepDefs extends configReader {
     @And("^I verify the issue count in response$")
     public void I_verify_the_issue_count_in_response() {
         String issueCount = res.getCount();
-        log.info("Number of issue displayed : " + issueCount);
+        log.info("Number of issue recieved : " + issueCount);
     }
 
     @Then("^I validate the Status line code$")
