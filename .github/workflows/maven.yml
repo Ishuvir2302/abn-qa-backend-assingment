@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Set up JDK
         uses: actions/setup-java@v2
-       with:
+        with:
            java-version: '11'
            java-package: jdk
            architecture: x64
@@ -40,4 +40,5 @@ jobs:
 
       - name: Build and Test
         run: mvn clean install
+
 
