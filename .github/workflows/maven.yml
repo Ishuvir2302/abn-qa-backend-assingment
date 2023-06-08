@@ -10,19 +10,26 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
-    - name: Set up Maven
-      run: |
-        echo ${{ secrets.ACCESS_TOKEN }} > ~/.m2/settings.xml
-        mvn --version
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
 
-    - name: Build and Test
-      run: mvn clean install
+      - name: Set up Maven
+        run: |
+          echo ${{ secrets.ACCESS_TOKEN }} > ~/.m2/settings.xml
+          mvn --version
+
+      - name: Build and Test
+        run: mvn clean install
 
