@@ -1,44 +1,25 @@
-name: RestAssured maven CI
+name: RestAssured Automation
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Set up JDK
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
-           java-version: '11'
-           java-package: jdk
-           architecture: x64
-           check-latest: false
-           server-id: github
-           server-username: GITHUB_ACTOR
-           server-password: ${{ secrets.GITHUB_TOKEN }}
-           overwrite-settings: true
-           job-status: success
+          java-version: 11
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-
-      - name: Set up Maven
-        run: |
-          echo ${{ secrets.ACCESS_TOKEN }} > ~/.m2/settings.xml
-          mvn --version
-
-      - name: Build and Test
-        run: mvn clean install
-
-
+      - name: Build and test with Maven
+        run: mvn clean test
