@@ -50,7 +50,7 @@ public class createStepDefs extends configReader {
         int code = res.response.getStatusCode();
         Assert.assertEquals(httpCode, code);
         if (code == 200) {
-            log.info("POST Request sucessfull" + code);
+            log.info("POST Request sucessfull PASS" + code);
         } else if (code == 401) {
             log.info("POST Request Failed: need to pass X-Master-Key in the header" + code);
         } else {
