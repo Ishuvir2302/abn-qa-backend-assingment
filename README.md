@@ -44,4 +44,58 @@ Fork this project
    </details>
 
 ## Documentation
-_<< Your documentation comes here >>_
+Assignment performed using Gitlab Issue API
+
+Functional requirement: To automate GitLab IssueAPI CRUD operations & edge cases
+Reference Link : https://docs.gitlab.com/ee/api/issues.html
+
+### Scenario covered
+
+|    CREATE | READ | UPDATE | DELETE |
+|-----------|------|--------|--------|
+Validating new issue creation in Issue API | Retrieving Issue details with valid token |Issue title update with valid token |Deleting an issue with valid token
+Validating new issue creation with invalid OATH2 token |Retrieving project details | Issue title update with invalid token |Deleting an issue with invalid token
+Validating issue move to other project |Error validation with invalid token |Issue due date update 
+Subscribing & Unscribing to issue |Retrieving group response 
+| |Validating issue existence in project
+--------------------------------------
+
+###  EDGE CASES COVERED -> Subscribing & Unsubscribing issue, Moving issue to other project, negative scenario with invalid token, validating deleted issues
+
+### Automation Tool 
+* RestAssured (used for automating gitlab issue Api)
+* Cucumber (BDD Approach)
+* Java 11 (Programming language)
+* Extent Report (Automation report)
+* Maven (Built tool)
+* junit
+* IDE (Eclipse or Intellij) optional
+* Property file (Configuration file for maintaing test data)
+* L0g4j (logger)
+
+### Brief Framework description
+
+![image](https://github.com/Ishuvir2302/abn-qa-backend-assingment/assets/135347516/064a633e-0c03-4b1a-a53b-82a6d8fd39a9)
+
+* dataprovider - configuration property reader code
+* helper - Logger code 
+* runner - test runner used with junit
+* stepdefinations - Actual glued code with feature files
+* utilities - base request and response class with common methods
+* feature - comprises of crud feature files
+* properties - comprises of property (OATH2 token, api routes) and log files
+
+### Automation execution  
+User can pull/clone the code in their local repo and try to execute using below approach 
+
+* locally can be executed by either running testRunner.java class from any IDE or can be executed by selecting maven test from POM.xml
+* using CMD tool by entering below command in you system command prompt 'mvn clean test'
+
+### Automation Report
+* Extent Report will be generated under target folder as cucumber_report.html
+* Cucumber index.html report get generated under target/reports folder
+
+### Test Data 
+* Project, groups, issue are created in gitlab issue API after creating account and oath2 token 
+
+
