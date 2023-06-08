@@ -10,10 +10,18 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+       with:
+           java-version: '11'
+           java-package: jdk
+           architecture: x64
+           check-latest: false
+           server-id: github
+           server-username: GITHUB_ACTOR
+           server-password: ${{ secrets.GITHUB_TOKEN }}
+           overwrite-settings: true
+           job-status: success
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
