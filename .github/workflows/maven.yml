@@ -1,4 +1,4 @@
-name: Maven CI
+name: RestAssured GitLAB issue API CI
 
 on:
   push:
