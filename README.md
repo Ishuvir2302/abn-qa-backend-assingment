@@ -60,7 +60,8 @@ Subscribing & Unscribing to issue |Retrieving group response
 | |Validating issue existence in project
 --------------------------------------
 
-###  EDGE CASES COVERED -> Subscribing & Unsubscribing issue, Moving issue to other project, negative scenario with invalid token, validating deleted issues
+###  EDGE CASES COVERED -> 
+Subscribing & Unsubscribing issue, Moving issue to other project, negative scenario with invalid token, validating deleted issues
 
 ### Automation Tool 
 * RestAssured (used for automating gitlab issue Api)
@@ -71,7 +72,8 @@ Subscribing & Unscribing to issue |Retrieving group response
 * junit
 * IDE (Eclipse or Intellij) optional
 * Property file (Configuration file for maintaing test data)
-* L0g4j (logger)
+* Log4j (logger)
+* CI Pipeline (Github CI using maven.yml)
 
 ### Brief Framework description
 
@@ -90,6 +92,9 @@ User can pull/clone the code in their local repo and try to execute using below 
 
 * locally can be executed by either running testRunner.java class from any IDE or can be executed by selecting maven test from POM.xml
 * using CMD tool by entering below command in you system command prompt 'mvn clean test'
+
+CI PIPELINE - GITHUB CI
+* Automation project is created with maven.yml file which will run after making changes to main branch 
 
 ### Automation Report
 * Extent Report will be generated under target folder as cucumber_report.html
